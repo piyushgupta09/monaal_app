@@ -1,0 +1,64 @@
+@import 'variables';
+@import 'shorts';
+@import 'fonts';
+@import 'theme';
+
+// Bootstrap
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+@import '../../modules/panel/src/resources/sass/main.scss';
+
+@import '../../modules/panel/src/resources/sass/adminLte.scss';
+
+@import '@fortawesome/fontawesome-free/css/all.css';
+
+// Important to add last
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Roboto', sans-serif;
+}
+
+.bg-theme {
+    background-color: var(--bg-color);
+}
+
+.text-theme {
+    color: var(--text-color);
+}
+
+.font-quick {
+    font-family: 'Quicksand', sans-serif;
+}
+
+.font-quint {
+    font-family: 'Quintessential', cursive;
+}
+
+.font-robot {
+    font-family: 'Roboto', sans-serif;
+}
+
+.ls-1 {
+    letter-spacing: 1px;
+}
+
+.bg-darker {
+    background-color: #1e1807 !important;
+}
+
+.nowrap {
+    white-space: nowrap !important;
+}
+
+.td-none {
+    text-decoration: none !important;
+}
+
+.form-check-input:checked,
+.form-check-input:checked[type=checkbox] {
+    background-color: $brand-primary !important;
+    border-color: $brand-primary !important;
+}
