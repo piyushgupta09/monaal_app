@@ -164,6 +164,7 @@ return [
          */
         Fpaipl\Authy\AuthyServiceProvider::class,
         Fpaipl\Panel\PanelServiceProvider::class,
+        Fpaipl\Stocky\StockyServiceProvider::class,
         
         
         /*
