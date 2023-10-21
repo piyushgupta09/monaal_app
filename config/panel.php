@@ -63,7 +63,92 @@ return [
         ],
     ],
 
-    'modulelinks' => [],
+    'modulelinks' => [
+        [
+            'icon' => 'bi bi-people',
+            'name' => 'Parties',
+            'route' => null,
+            'position' => 4,
+            'access' => 'admin|data-manager',
+            'child' => [
+                [
+                    'icon' => 'bi bi-arrow-right-short text-white',
+                    'name' => 'Suppliers',
+                    'route' => 'suppliers.index',
+                    'position' => 1,
+                    'access' => 'admin|data-manager',
+                ],
+                [
+                    'icon' => 'bi bi-arrow-right-short text-white',
+                    'name' => 'Customers',
+                    'route' => 'customers.index',
+                    'position' => 2,
+                    'access' => 'admin|data-manager',
+                ],
+                [
+                    'icon' => 'bi bi-arrow-right-short text-white',
+                    'name' => 'Addresses',
+                    'route' => 'addresses.index',
+                    'position' => 3,
+                    'access' => 'admin|data-manager',
+                ],
+            ],
+        ],
+        [
+            'icon' => 'bi bi-diagram-3',
+            'name' => 'Datasets',
+            'route' => null,
+            'position' => 5,
+            'access' => 'admin|data-manager',
+            'child' => [
+                [
+                    'icon' => 'bi bi-arrow-right-short text-white',
+                    'name' => 'Locations',
+                    'route' => 'locations.index',
+                    'position' => 1,
+                    'access' => 'admin|data-manager',
+                ],
+                [
+                    'icon' => 'bi bi-arrow-right-short text-white',
+                    'name' => 'Units',
+                    'route' => 'units.index',
+                    'position' => 2,
+                    'access' => 'admin|data-manager',
+                ],
+                [
+                    'icon' => 'bi bi-arrow-right-short text-white',
+                    'name' => 'Categories',
+                    'route' => 'categories.index',
+                    'position' => 3,
+                    'access' => 'admin|data-manager',
+                ],
+                [
+                    'icon' => 'bi bi-arrow-right-short text-white',
+                    'name' => 'Taxations',
+                    'route' => 'taxations.index',
+                    'position' => 4,
+                    'access' => 'admin|data-manager',
+                ],
+            ],
+        ],
+        [
+            'icon' => 'bi bi-shield-check',
+            'name' => 'System Controls',
+            'route' => null,
+            'position' => 6,
+            'access' => 'admin',
+            'child' => [
+                [
+                    'icon' => 'bi bi-arrow-right-short text-white',
+                    'name' => 'Users',
+                    'route' => 'users.index',
+                    'position' => 1,
+                    'access' => 'admin',
+                ],
+            ],
+        ],
+
+    ],
 
     'applinks' => [],
 
@@ -79,14 +164,12 @@ return [
         2 => [
             'icon' => 'bi bi-',
             'name' => 'About Us',
-            // 'route' => 'web.settings',
             'route' => 'about-us',
             'access' => '',
         ],
         3 => [
             'icon' => 'bi bi-',
             'name' => 'Terms & Conditions',
-            // 'route' => 'web.settings',
             'route' => 'terms-and-conditions',
             'access' => '',
         ],

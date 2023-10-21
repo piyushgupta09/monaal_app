@@ -34,11 +34,11 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/",
+            "Fpaipl\\Panel\\": "modules/panel/src/",
             "Fpaipl\\Authy\\Database\\Seeders\\": "modules/authy/database/seeders/",
             "Fpaipl\\Authy\\": "modules/authy/src/",
-            "Fpaipl\\Panel\\": "modules/panel/src/",
-            "Fpaipl\\Stocky\\": "modules/stocky/src/",
-            "Fpaipl\\Stocky\\Database\\Seeders\\": "modules/stocky/database/seeders/"
+            "Fpaipl\\Stocky\\Database\\Seeders\\": "modules/stocky/database/seeders/",
+            "Fpaipl\\Stocky\\": "modules/stocky/src/"
         },
         "files": [
             "modules/panel/Helpers/helpers.php"
