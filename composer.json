@@ -2,7 +2,10 @@
     "name": "laravel/laravel",
     "type": "project",
     "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
     "license": "MIT",
     "require": {
         "php": "^8.1",
@@ -32,8 +35,8 @@
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/",
             "Fpaipl\\Authy\\Database\\Seeders\\": "modules/authy/database/seeders/",
-            "Fpaipl\\Authy\\" : "modules/authy/src/",
-            "Fpaipl\\Panel\\" : "modules/panel/src/"
+            "Fpaipl\\Authy\\": "modules/authy/src/",
+            "Fpaipl\\Panel\\": "modules/panel/src/"
         },
         "files": [
             "modules/panel/Helpers/helpers.php"
@@ -74,5 +77,6 @@
         }
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": []
 }
