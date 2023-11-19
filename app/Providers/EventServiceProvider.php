@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Auth\Events\Verified;
 use Illuminate\Auth\Events\Registered;
-use Fpaipl\Shopy\Listeners\SendWelcomeEmail;
+use Fpaipl\Authy\Listeners\SendWelcomeEmail;
 use Fpaipl\Authy\Listeners\SetupNewAuthyAccount;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;

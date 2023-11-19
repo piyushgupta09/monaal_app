@@ -9,7 +9,7 @@ trait HasStatus
         return $this->where('status', $status);
     }
 
-    public function status($status)
+    public function setStatus($status)
     {
         $this->status = $status;
         $this->save();

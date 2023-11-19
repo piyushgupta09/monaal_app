@@ -14,6 +14,7 @@ class User extends AuthyUser
     protected $fillable = [
         'name',
         'email',
+        'mobile',
         'password',
         'otpcode',
         'utype',
@@ -39,5 +40,22 @@ class User extends AuthyUser
         'approved_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function getTableData($key)
+    {
+        switch ($key) {
+            case 'role': return $this->roles->first()->name;
+            default: return $this->{$key};
+        }
+    }
+
+    public function partyDetails()
+    {
+        if ($this->hasRole('customer')) {
+            return $this->hasOne('Fpaipl\Stocky\Models\Customer', 'user_id');
+        } elseif ($this->hasRole('supplier')) {
+            return $this->hasOne('Fpaipl\Stocky\Models\Supplier', 'user_id');
+        }
+    }
 
 }
