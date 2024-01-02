@@ -6,7 +6,20 @@ return [
     // for stock
     // 'auto-create-stock' => true, 
     // for other migrations
-    'auto-create-stock' => false, 
+    'auto-create-stock' => false,
+    
+    'create-actions' => [
+        [ 'route' => 'pos.create', 'name' => 'New PO', 'access' => 'manager|order-manager' ],
+        [ 'route' => 'prs.create', 'name' => 'New PR', 'access' => 'manager|order-manager' ],
+        [ 'route' => 'sos.create', 'name' => 'New SO', 'access' => 'manager|order-manager' ],
+        [ 'route' => 'srs.create', 'name' => 'New SR', 'access' => 'manager|order-manager' ],
+        [ 'route' => 'inwards.create', 'name' => 'New Inward', 'access' => 'manager|store-manager|qc-manager' ],
+        [ 'route' => 'inward-returns.create', 'name' => 'New Inward Return', 'access' => 'manager|store-manager|qc-manager' ],
+        [ 'route' => 'outwards.create', 'name' => 'New Outward', 'access' => 'manager|store-manager|qc-manager' ],
+        [ 'route' => 'outward-returns.create', 'name' => 'New Outward Return', 'access' => 'manager|store-manager|qc-manager' ],
+        [ 'route' => 'purchases.create', 'name' => 'New Purchase', 'access' => 'manager|account-manager' ],
+        [ 'route' => 'sales.create', 'name' => 'New Sale', 'access' => 'manager|account-manager' ],
+    ],
 
     'fabric-types' => [
         'fabric' => 'Fabric',
@@ -28,6 +41,9 @@ return [
                 'expiry' => 0.1, // i.e. 10%
                 'quantity' => 0.1, // i.e. 10%
             ],
+            'bill' => [
+                'adjustment' => 0.01, // i.e. 1%
+            ]
         ],
         'buffers' => [
             'po' => [
@@ -54,6 +70,11 @@ return [
         'sale' => 30, // days
         'debitnote' => 30, // days
         'creditnote' => 30, // days
+    ],
+
+    'ageing' => [
+        'payables' => 45, // days
+        'receivables' => 30, // days
     ],
 
     'view-only-models' => [
@@ -189,6 +210,14 @@ return [
             'route' => 'stocky.dashboard', // default 'panel.dashboard'
             'position' => 1,
             'access' => 'user',
+            'child' => [],
+        ],
+        [
+            'icon' => 'bi bi bi-stack-overflow',
+            'name' => 'Reportings',
+            'route' => 'stocky.reportings', // default 'panel.dashboard'
+            'position' => 2,
+            'access' => 'admin|owner|manager',
             'child' => [],
         ],
 
