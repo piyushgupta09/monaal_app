@@ -1,4 +1,6 @@
 import './bootstrap';
+import './register-sw';
+import './pwa';
 import '../../modules/panel/src/resources/js/adminLte';
 import './dashboard';
 
