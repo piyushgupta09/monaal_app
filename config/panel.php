@@ -2,6 +2,8 @@
 
 return [
 
+    'owner_email' => 'admin_alert@fpaipl.in', // for owner notification
+
     // For Migration Run
     // for stock
     // 'auto-create-stock' => true, 
@@ -449,6 +451,34 @@ return [
                     'name' => 'Users',
                     'route' => 'users.index',
                     'position' => 1,
+                    'access' => 'admin',
+                ],
+                [
+                    'icon' => 'bi bi-arrow-right-short text-white',
+                    'name' => 'Notifications',
+                    'route' => 'notifications.index',
+                    'position' => 2,
+                    'access' => 'admin',
+                ],
+                [
+                    'icon' => 'bi bi-arrow-right-short text-white',
+                    'name' => 'Activity Logs',
+                    'route' => 'activitylogs.index',
+                    'position' => 3,
+                    'access' => 'admin',
+                ],
+                [
+                    'icon' => 'bi bi-arrow-right-short text-white',
+                    'name' => 'Queued Jobs',
+                    'route' => 'jobs.index',
+                    'position' => 3,
+                    'access' => 'admin',
+                ],
+                [
+                    'icon' => 'bi bi-arrow-right-short text-white',
+                    'name' => 'Failed Jobs',
+                    'route' => 'failedjobs.index',
+                    'position' => 4,
                     'access' => 'admin',
                 ],
             ],
