@@ -331,7 +331,7 @@ return [
             ],
         ],
         [
-            'id' => 'menu-accounts',
+            'id' => 'menu-godowns',
             'icon' => 'bi bi-database',
             'name' => 'Godowns',
             'route' => null,
