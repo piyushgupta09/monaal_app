@@ -207,6 +207,7 @@ return [
 
     'modulelinks' => [
         [
+            'id' => 'menu-dashboard',
             'icon' => 'bi bi-speedometer2',
             'name' => 'Dashboard',
             'route' => 'stocky.dashboard', // default 'panel.dashboard'
@@ -215,6 +216,7 @@ return [
             'child' => [],
         ],
         [
+            'id' => 'menu-reportings',
             'icon' => 'bi bi bi-stack-overflow',
             'name' => 'Reportings',
             'route' => 'stocky.reportings', // default 'panel.dashboard'
@@ -229,6 +231,7 @@ return [
             'child' => [],
         ],
         [
+            'id' => 'menu-orders',
             'icon' => 'bi bi-cart4',
             'name' => 'Orders',
             'route' => null,
@@ -266,6 +269,7 @@ return [
             ],
         ],
         [
+            'id' => 'menu-store',
             'icon' => 'bi bi-buildings',
             'name' => 'Store',
             'route' => null,
@@ -303,6 +307,7 @@ return [
             ],
         ],
         [
+            'id' => 'menu-accounts',
             'icon' => 'bi bi-cash-stack',
             'name' => 'Accounts',
             'route' => null,
@@ -326,6 +331,7 @@ return [
             ],
         ],
         [
+            'id' => 'menu-accounts',
             'icon' => 'bi bi-database',
             'name' => 'Godowns',
             'route' => null,
@@ -355,6 +361,7 @@ return [
         ],
 
         [
+            'id' => 'menu-parties',
             'icon' => 'bi bi-people',
             'name' => 'Parties',
             'route' => null,
@@ -386,6 +393,7 @@ return [
         ],
 
         [
+            'id' => 'menu-materials',
             'icon' => 'bi bi-flower1',
             'name' => 'Materials',
             'route' => null,
@@ -410,6 +418,7 @@ return [
         ],
 
         [
+            'id' => 'menu-general',
             'icon' => 'bi bi-diagram-3',
             'name' => 'General',
             'route' => null,
@@ -440,6 +449,7 @@ return [
             'child' => [],
         ],
         [
+            'id' => 'menu-system',
             'icon' => 'bi bi-shield-check',
             'name' => 'System Controls',
             'route' => null,
