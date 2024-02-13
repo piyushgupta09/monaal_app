@@ -36,15 +36,17 @@ return [
             'po' => [
                 'rate' => 0.05, // i.e. 5%
                 'expiry' => 0.1, // i.e. 10%
-                'quantity' => 0.1, // i.e. 10%
+                'quantity' => 1, // i.e. 100%
+                // 'quantity' => 0.1, // i.e. 10%
             ],
             'so' => [
                 'rate' => 0, // i.e. No Tolerance
                 'expiry' => 0.1, // i.e. 10%
-                'quantity' => 0.1, // i.e. 10%
+                'quantity' => 1, // i.e. 100%
+                // 'quantity' => 0.1, // i.e. 10%
             ],
             'bill' => [
-                'adjustment' => 0.01, // i.e. 1%
+                'adjustment' => 10, // i.e. 1%
             ]
         ],
         'buffers' => [

@@ -1,0 +1,21 @@
+# Live Database Updates
+
+On -> 01-02-2024 16:36 - 16:39
+
+> $po = Fpaipl\Stocky\Models\So::where('sid', 'SO-24010095')->first()->update([ 'status' => 'draft' ]);
+= true
+
+> $po = Fpaipl\Stocky\Models\So::where('sid', 'SO-24010061')->first()->update([ 'status' => 'draft' ]);
+= true
+
+> $po = Fpaipl\Stocky\Models\So::where('sid', 'SO-24010062')->first()->update([ 'status' => 'draft' ]);
+= true
+
+> $po = Fpaipl\Stocky\Models\So::where('sid', 'SO-24010063')->first()->update([ 'status' => 'draft' ]);
+= true
+
+> $po = Fpaipl\Stocky\Models\So::where('sid', 'SO-24010084')->first()->update([ 'status' => 'draft' ]);
+= true
+
+> $po = Fpaipl\Stocky\Models\So::where('sid', 'SO-24010077')->first()->update([ 'status' => 'draft' ]);
+= true
