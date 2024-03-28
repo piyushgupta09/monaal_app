@@ -516,6 +516,7 @@
     &-35p { width: 35px; }
     &-40p { width: 40px; }
     &-50p { width: 50px; }
+    &-55p { width: 55px; }
     &-60p { width: 60px; }
     &-70p { width: 70px; }
     &-75p { width: 75px; }
@@ -1354,6 +1355,224 @@
             margin-right: 0.5rem;
             color: $brand-primary;
             background-color: $brand-primary;
+        }
+    }
+}
+
+// Add a hyphen before and after the text
+.bg-sm {
+    &-start {
+        &-danger::before { 
+            content: "-";
+            border-radius: 0.25rem;
+            margin-right: 0.5rem;
+            color: $danger;
+            background-color: $danger; 
+        }
+        &-success::before { 
+            content: "-";
+            border-radius: 0.25rem;
+            margin-right: 0.5rem;
+            color: $success;
+            background-color: $success; 
+        }
+        &-warning::before { 
+            content: "-";
+            border-radius: 0.25rem;
+            margin-right: 0.5rem;
+            color: $warning;
+            background-color: $warning; 
+        }
+        &-info::before { 
+            content: "-";
+            border-radius: 0.25rem;
+            margin-right: 0.5rem;
+            color: $info;
+            background-color: $info; 
+        }
+        &-primary::before { 
+            content: "-";
+            border-radius: 0.25rem;
+            margin-right: 0.5rem;
+            color: $primary;
+            background-color: $primary; 
+        }
+        &-secondary::before { 
+            content: "-";
+            border-radius: 0.25rem;
+            margin-right: 0.5rem;
+            color: $secondary;
+            background-color: $secondary; 
+        }
+        &-light::before { 
+            content: "-";
+            border-radius: 0.25rem;
+            margin-right: 0.5rem;
+            color: $light;
+            background-color: $light; 
+        }
+    }
+    &-end {
+        &-danger::after { 
+            content: "-";
+            border-radius: 0.25rem;
+            margin-left: 0.5rem;
+            color: $danger;
+            background-color: $danger; 
+        }
+        &-success::after { 
+            content: "-";
+            border-radius: 0.25rem;
+            margin-left: 0.5rem;
+            color: $success;
+            background-color: $success; 
+        }
+        &-warning::after { 
+            content: "-";
+            border-radius: 0.25rem;
+            margin-left: 0.5rem;
+            color: $warning;
+            background-color: $warning; 
+        }
+        &-info::after { 
+            content: "-";
+            border-radius: 0.25rem;
+            margin-left: 0.5rem;
+            color: $info;
+            background-color: $info; 
+        }
+        &-primary::after { 
+            content: "-";
+            border-radius: 0.25rem;
+            margin-left: 0.5rem;
+            color: $primary;
+            background-color: $primary; 
+        }
+        &-secondary::after { 
+            content: "-";
+            border-radius: 0.25rem;
+            margin-left: 0.5rem;
+            color: $secondary;
+            background-color: $secondary; 
+        }
+        &-light::after { 
+            content: "-";
+            border-radius: 0.25rem;
+            margin-left: 0.5rem;
+            color: $light;
+            background-color: $light; 
+        }
+    }
+}
+
+.bg-md {
+    &-start {
+        &-danger::before { 
+            content: "_";
+            border-radius: 0.25rem;
+            margin-right: 0.5rem;
+            color: $danger;
+            background-color: $danger; 
+        }
+        &-success::before { 
+            content: "_";
+            border-radius: 0.25rem;
+            margin-right: 0.5rem;
+            color: $success;
+            background-color: $success; 
+        }
+        &-warning::before { 
+            content: "_";
+            border-radius: 0.25rem;
+            margin-right: 0.5rem;
+            color: $warning;
+            background-color: $warning; 
+        }
+        &-info::before { 
+            content: "_";
+            border-radius: 0.25rem;
+            margin-right: 0.5rem;
+            color: $info;
+            background-color: $info; 
+        }
+        &-primary::before { 
+            content: "_";
+            border-radius: 0.25rem;
+            margin-right: 0.5rem;
+            color: $primary;
+            background-color: $primary; 
+        }
+        &-secondary::before { 
+            content: "_";
+            border-radius: 0.25rem;
+            margin-right: 0.5rem;
+            color: $secondary;
+            background-color: $secondary; 
+        }
+        &-light::before { 
+            content: "_";
+            border-radius: 0.25rem;
+            margin-right: 0.5rem;
+            color: $light;
+            background-color: $light; 
+        }
+        &-dark::before { 
+            content: "_";
+            border-radius: 0.25rem;
+            margin-right: 0.5rem;
+            color: $dark;
+            background-color: $dark; 
+        }
+    }
+    &-end {
+        &-danger::after { 
+            content: "_";
+            // border-radius: 0.25rem;
+            margin-left: 0.5rem;
+            color: $danger;
+            background-color: $danger; 
+        }
+        &-success::after { 
+            content: "_";
+            // border-radius: 0.25rem;
+            margin-left: 0.5rem;
+            color: $success;
+            background-color: $success; 
+        }
+        &-warning::after { 
+            content: "_";
+            // border-radius: 0.25rem;
+            margin-left: 0.5rem;
+            color: $warning;
+            background-color: $warning; 
+        }
+        &-info::after { 
+            content: "_";
+            // border-radius: 0.25rem;
+            margin-left: 0.5rem;
+            color: $info;
+            background-color: $info; 
+        }
+        &-primary::after { 
+            content: "_";
+            // border-radius: 0.25rem;
+            margin-left: 0.5rem;
+            color: $primary;
+            background-color: $primary; 
+        }
+        &-secondary::after { 
+            content: "_";
+            // border-radius: 0.25rem;
+            margin-left: 0.5rem;
+            color: $secondary;
+            background-color: $secondary; 
+        }
+        &-light::after { 
+            content: "_";
+            // border-radius: 0.25rem;
+            margin-left: 0.5rem;
+            color: $light;
+            background-color: $light; 
         }
     }
 }

@@ -1,0 +1,4 @@
+php artisan migrate:fresh
+php artisan db:seed --class="Fpaipl\Authy\Database\Seeders\AuthyDatabaseSeeder"
+php artisan db:seed --class="Fpaipl\Stocky\Database\Seeders\StockyDatabaseSeeder"
+php artisan optimize:clear
