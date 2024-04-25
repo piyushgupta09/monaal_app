@@ -62,3 +62,18 @@ body {
     background-color: $brand-primary !important;
     border-color: $brand-primary !important;
 }
+
+
+.chatbox {
+    min-width: 300px; 
+    max-width: 300px; 
+    height: calc(100% - 60px);
+}
+
+@media screen and (max-width: 1196px) {
+    .chatbox {
+        min-width: 100%; 
+        max-width: 100%; 
+        height: calc(100% - 60px);
+    }
+}

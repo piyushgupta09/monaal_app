@@ -23,6 +23,7 @@
         "spatie/laravel-permission": "^6.0"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.13",
         "fakerphp/faker": "^1.9.1",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.18",
@@ -36,9 +37,10 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/",
-            "Fpaipl\\Panel\\": "modules/panel/src/",
             "Fpaipl\\Authy\\Database\\Seeders\\": "modules/authy/database/seeders/",
             "Fpaipl\\Authy\\": "modules/authy/src/",
+            "Fpaipl\\Panel\\Database\\Seeders\\": "modules/panel/database/seeders/",
+            "Fpaipl\\Panel\\": "modules/panel/src/",
             "Fpaipl\\Stocky\\Database\\Seeders\\": "modules/stocky/database/seeders/",
             "Fpaipl\\Stocky\\": "modules/stocky/src/"
         },

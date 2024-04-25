@@ -1321,6 +1321,8 @@
     content: 'Mrp ₹';
 }
 
+.decimal { font-size: 12px; }
+
 .discount {
     &-mp {
         color: #c54451;
@@ -1938,3 +1940,8 @@
     -ms-user-select: none;     /* IE/Edge */
     user-select: none;         /* Standard syntax */
   }
+
+  .reversed-list {
+    display: flex;
+    flex-direction: column-reverse;
+}

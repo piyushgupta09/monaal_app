@@ -1,6 +1,6 @@
 import './bootstrap';
 import './register-sw';
-import './pwa';
+// import './pwa';
 import '../../modules/panel/src/resources/js/adminLte';
 import './dashboard';
 
@@ -25,3 +25,16 @@ document.addEventListener('DOMContentLoaded', (event) => {
         });
     }
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const elements = document.querySelectorAll('.split-decimal');
+    elements.forEach(element => {
+        let content = element.textContent; // Get the current content of the element
+        let [integer, decimal] = content.split('.'); // Split into integer and decimal parts
+        if (decimal) { // Check if there is a decimal part
+            element.innerHTML = `${integer}.<span class="decimal">${decimal}</span>`; // Reformat with smaller decimal part
+        }
+    });
+});
+
+

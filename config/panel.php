@@ -10,17 +10,31 @@ return [
     // for other migrations
     'auto-create-stock' => false,
     
+    // 'icon' => 'plus-lg'
     'create-actions' => [
-        [ 'route' => 'pos.create', 'name' => 'New PO', 'access' => 'manager|order-manager' ],
-        [ 'route' => 'prs.create', 'name' => 'New PR', 'access' => 'manager|order-manager' ],
-        [ 'route' => 'sos.create', 'name' => 'New SO', 'access' => 'manager|order-manager' ],
-        [ 'route' => 'srs.create', 'name' => 'New SR', 'access' => 'manager|order-manager' ],
-        [ 'route' => 'inwards.create', 'name' => 'New Inward', 'access' => 'manager|store-manager|qc-manager' ],
-        [ 'route' => 'inward-returns.create', 'name' => 'New Inward Return', 'access' => 'manager|store-manager|qc-manager' ],
-        [ 'route' => 'outwards.create', 'name' => 'New Outward', 'access' => 'manager|store-manager|qc-manager' ],
-        [ 'route' => 'outward-returns.create', 'name' => 'New Outward Return', 'access' => 'manager|store-manager|qc-manager' ],
-        [ 'route' => 'purchases.create', 'name' => 'New Purchase', 'access' => 'manager|account-manager' ],
-        [ 'route' => 'sales.create', 'name' => 'New Sale', 'access' => 'manager|account-manager' ],
+        [ 'title' => 'Order Documents' ],
+        [ 'route' => 'pos.create', 'abbr' => 'PO', 'name' => 'Purchase Order', 'access' => 'manager|order-manager' ],
+        [ 'route' => 'sos.create', 'abbr' => 'SO', 'name' => 'Sale Order', 'access' => 'manager|order-manager' ],
+        [ 'route' => 'prs.create', 'abbr' => 'PR', 'name' => 'Purchase Return Order', 'access' => 'manager|order-manager' ],
+        [ 'route' => 'srs.create', 'abbr' => 'SR', 'name' => 'Sale Return Order', 'access' => 'manager|order-manager' ],
+        [ 'divider' => true ],
+        [ 'title' => 'Movement Documents' ],
+        [ 'route' => 'inwards.create', 'abbr' => 'IN', 'name' => 'Stock Inward Note', 'access' => 'manager|store-manager|qc-manager' ],
+        [ 'route' => 'outwards.create', 'abbr' => 'ON', 'name' => 'Stock Outward Note', 'access' => 'manager|store-manager|qc-manager' ],
+        [ 'route' => 'inward-returns.create', 'abbr' => 'IRN', 'name' => 'Stock Inward Return Note', 'access' => 'manager|store-manager|qc-manager' ],
+        [ 'route' => 'outward-returns.create', 'abbr' => 'ORN', 'name' => 'Stock Outward Return Note', 'access' => 'manager|store-manager|qc-manager' ],
+        [ 'route' => 'bulk.inwards.create', 'abbr' => 'IN+', 'name' => 'Bulk Inward Notes', 'access' => 'manager|store-manager|qc-manager' ],
+        [ 'route' => 'bulk.outwards.create', 'abbr' => 'ON+', 'name' => 'Bulk Outward Notes', 'access' => 'manager|store-manager|qc-manager' ],
+        [ 'divider' => true ],
+        [ 'title' => 'Billing Documents' ],
+        [ 'route' => 'purchases.create', 'abbr' => 'PUR', 'name' => 'Purchase Invoice', 'access' => 'manager|account-manager' ],
+        [ 'route' => 'sales.create', 'abbr' => 'SAL', 'name' => 'Sale Invoice (GST)', 'access' => 'manager|account-manager' ],
+        // [ 'route' => 'sales.create', 'abbr' => 'PAY', 'name' => 'Make Ledger Payment', 'access' => 'manager|account-manager' ],
+        // [ 'route' => 'sales.create', 'abbr' => 'REC', 'name' => 'Book Ledger Receipt', 'access' => 'manager|account-manager' ],
+        // [ 'divider' => true ],
+        // [ 'title' => 'Accounting Documents' ],
+        // [ 'route' => 'sales.create', 'abbr' => 'EXP', 'name' => 'Add New Expenses', 'access' => 'manager|account-manager' ],
+        // [ 'route' => 'sales.create', 'abbr' => 'INC', 'name' => 'Add New Income', 'access' => 'manager|account-manager' ],
     ],
 
     'fabric-types' => [
@@ -64,16 +78,16 @@ return [
     ],
 
     'archived' => [
-        'po' => 30, // days
-        'so' => 30, // days
-        'por' => 30, // days
-        'sor' => 30, // days
-        'inward' => 30, // days
-        'outward' => 30, // days
-        'purchase' => 30, // days
-        'sale' => 30, // days
-        'debitnote' => 30, // days
-        'creditnote' => 30, // days
+        'po' => 365, // days
+        'so' => 365, // days
+        'por' => 365, // days
+        'sor' => 365, // days
+        'inward' => 365, // days
+        'outward' => 365, // days
+        'purchase' => 365, // days
+        'sale' => 365, // days
+        'debitnote' => 365, // days
+        'creditnote' => 365, // days
     ],
 
     'ageing' => [
@@ -309,6 +323,44 @@ return [
             ],
         ],
         [
+            'id' => 'menu-bills',
+            'icon' => 'bi bi-cash-stack',
+            'name' => 'Party Bills',
+            'route' => null,
+            'position' => 3,
+            'access' => 'manager|account-manager',
+            'child' => [
+                [
+                    'icon' => 'bi bi-arrow-right-short text-white',
+                    'name' => 'Purchase Bills',
+                    'route' => 'purchases.index',
+                    'position' => 1,
+                    'access' => 'manager|account-manager',
+                ],
+                [
+                    'icon' => 'bi bi-arrow-right-short text-white',
+                    'name' => 'Sales Bills',
+                    'route' => 'sales.index',
+                    'position' => 2,
+                    'access' => 'manager|account-manager',
+                ],
+                [
+                    'icon' => 'bi bi-arrow-right-short text-white',
+                    'name' => 'Debit Notes',
+                    'route' => 'debitnotes.index',
+                    'position' => 3,
+                    'access' => 'manager|account-manager',
+                ],
+                [
+                    'icon' => 'bi bi-arrow-right-short text-white',
+                    'name' => 'Credit Notes',
+                    'route' => 'creditnotes.index',
+                    'position' => 4,
+                    'access' => 'manager|account-manager',
+                ],
+            ],
+        ],
+        [
             'id' => 'menu-accounts',
             'icon' => 'bi bi-cash-stack',
             'name' => 'Accounts',
@@ -318,16 +370,30 @@ return [
             'child' => [
                 [
                     'icon' => 'bi bi-arrow-right-short text-white',
-                    'name' => 'Purchase Bills',
-                    'route' => 'purchases.index',
+                    'name' => 'Groups',
+                    'route' => 'groups.index',
+                    'position' => 1,
+                    'access' => 'admin|data-manager',
+                ],
+                [
+                    'icon' => 'bi bi-arrow-right-short text-white',
+                    'name' => 'Party Ledgers',
+                    'route' => 'ledgers.index',
                     'position' => 3,
                     'access' => 'manager|account-manager',
                 ],
                 [
                     'icon' => 'bi bi-arrow-right-short text-white',
-                    'name' => 'Sales Bills',
-                    'route' => 'sales.index',
-                    'position' => 3,
+                    'name' => 'Transactions',
+                    'route' => 'transactions.index',
+                    'position' => 4,
+                    'access' => 'manager|account-manager',
+                ],
+                [
+                    'icon' => 'bi bi-arrow-right-short text-white',
+                    'name' => 'Journal Entries',
+                    'route' => 'journals.index',
+                    'position' => 4,
                     'access' => 'manager|account-manager',
                 ],
             ],
@@ -431,14 +497,14 @@ return [
                     'icon' => 'bi bi-arrow-right-short text-white',
                     'name' => 'Units',
                     'route' => 'units.index',
-                    'position' => 2,
+                    'position' => 1,
                     'access' => 'admin|data-manager',
                 ],
                 [
                     'icon' => 'bi bi-arrow-right-short text-white',
                     'name' => 'Taxes',
                     'route' => 'taxes.index',
-                    'position' => 4,
+                    'position' => 2,
                     'access' => 'admin|data-manager',
                 ],
             ],
@@ -498,7 +564,26 @@ return [
 
     ],
 
-    'applinks' => [],
+    'applinks' => [
+        [
+            'id' => 'menu-settings',
+            'icon' => 'bi bi bi-chat-left-text-fill',
+            'name' => 'Open Chatbox',
+            'route' => 'panel.chatbox.index',
+            'position' => 1,
+            'access' => 'admin|owner|manager',
+            'child' => [],
+        ],
+        [
+            'id' => 'menu-settings',
+            'icon' => 'bi bi bi-gear-fill',
+            'name' => 'App Setting',
+            'route' => 'panel.settings.index',
+            'position' => 1,
+            'access' => 'admin|owner|manager',
+            'child' => [],
+        ],
+    ],
 
     'userlinks' => [],
 

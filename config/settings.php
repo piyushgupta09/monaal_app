@@ -2,6 +2,8 @@
 
 return [
 
+    'state' => 'delhi',
+
     'option_colors' => [
         ["name" => "Sky Blue","hex" => "#BDFFFE","color" => "#1f2d3d"],
         ["name" => "Aqua Blue","hex" => "#00FFEF","color" => "#1f2d3d"],

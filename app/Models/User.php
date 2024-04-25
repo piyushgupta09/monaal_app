@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Fpaipl\Panel\Models\Chat;
 use Fpaipl\Authy\Models\User as AuthyUser;
 
 class User extends AuthyUser
@@ -58,4 +59,43 @@ class User extends AuthyUser
         }
     }
 
+    public function chats()
+    {
+        return $this->hasMany(Chat::class, 'user_id');
+    }
+
+    public function myDepartment()
+    {
+        if ($this->hasRole('order-manager')) {
+            return 'Order Section';
+        } elseif ($this->hasRole('store-manager')) {
+            return 'Store Section';
+        } elseif ($this->hasRole('account-manager')) {
+            return 'Account Section';
+        } elseif ($this->hasRole('data-manager')) {
+            return 'Data Section';
+        } elseif ($this->hasRole('qc-manager')) {
+            return 'QC Section';
+        } elseif ($this->hasRole('manager')) {
+            return 'Admin Office';
+        } elseif ($this->hasRole('owner')) {
+            return 'Head Office';
+        } else {
+            return 'User';
+        }
+    }
+
+    public function senderName()
+    {
+        if ($this->myChat()) {
+            return 'You';
+        } else {
+            return $this->name;
+        }
+    }
+
+    public function myChat()
+    {
+        return $this->id === auth()->id();
+    }
 }
