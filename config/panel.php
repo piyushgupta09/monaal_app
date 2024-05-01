@@ -29,8 +29,9 @@ return [
         [ 'title' => 'Billing Documents' ],
         [ 'route' => 'purchases.create', 'abbr' => 'PUR', 'name' => 'Purchase Invoice', 'access' => 'manager|account-manager' ],
         [ 'route' => 'sales.create', 'abbr' => 'SAL', 'name' => 'Sale Invoice (GST)', 'access' => 'manager|account-manager' ],
-        // [ 'route' => 'sales.create', 'abbr' => 'PAY', 'name' => 'Make Ledger Payment', 'access' => 'manager|account-manager' ],
-        // [ 'route' => 'sales.create', 'abbr' => 'REC', 'name' => 'Book Ledger Receipt', 'access' => 'manager|account-manager' ],
+        [ 'route' => 'debitnotes.create', 'abbr' => 'DBN', 'name' => 'Debit Note (PR)', 'access' => 'manager|account-manager' ],
+        [ 'route' => 'creditnotes.create', 'abbr' => 'CRN', 'name' => 'Credit Note (SR)', 'access' => 'manager|account-manager' ],
+        [ 'route' => 'transactions.create', 'abbr' => 'TRN', 'name' => 'Record Transactions', 'access' => 'manager|account-manager' ],
         // [ 'divider' => true ],
         // [ 'title' => 'Accounting Documents' ],
         // [ 'route' => 'sales.create', 'abbr' => 'EXP', 'name' => 'Add New Expenses', 'access' => 'manager|account-manager' ],
@@ -43,6 +44,21 @@ return [
         'trims' => 'Trims',
         'packaging' => 'Packaging',
         'other' => 'Other',
+    ],
+
+    'catelog-brands' => [
+        [
+            'id' => 'deshigirl',
+            'name' => 'Deshigirl'
+        ],
+        [
+            'id' => 'machiddle',
+            'name' => 'Machiddle'
+        ],
+        [
+            'id' => 'instabay',
+            'name' => 'Instabay'
+        ]
     ],
 
     'tolerance' => [      
@@ -389,13 +405,13 @@ return [
                     'position' => 4,
                     'access' => 'manager|account-manager',
                 ],
-                [
-                    'icon' => 'bi bi-arrow-right-short text-white',
-                    'name' => 'Journal Entries',
-                    'route' => 'journals.index',
-                    'position' => 4,
-                    'access' => 'manager|account-manager',
-                ],
+                // [
+                //     'icon' => 'bi bi-arrow-right-short text-white',
+                //     'name' => 'Journal Entries',
+                //     'route' => 'journals.index',
+                //     'position' => 4,
+                //     'access' => 'manager|account-manager',
+                // ],
             ],
         ],
         [
@@ -482,6 +498,13 @@ return [
                     'position' => 5,
                     'access' => 'admin|data-manager',
                 ],
+                [
+                    'icon' => 'bi bi-arrow-right-short text-white',
+                    'name' => 'Catelogs',
+                    'route' => 'catelogs.index',
+                    'position' => 5,
+                    'access' => 'admin|data-manager',
+                ],
             ],
         ],
 
@@ -565,24 +588,24 @@ return [
     ],
 
     'applinks' => [
-        [
-            'id' => 'menu-settings',
-            'icon' => 'bi bi bi-chat-left-text-fill',
-            'name' => 'Open Chatbox',
-            'route' => 'panel.chatbox.index',
-            'position' => 1,
-            'access' => 'admin|owner|manager',
-            'child' => [],
-        ],
-        [
-            'id' => 'menu-settings',
-            'icon' => 'bi bi bi-gear-fill',
-            'name' => 'App Setting',
-            'route' => 'panel.settings.index',
-            'position' => 1,
-            'access' => 'admin|owner|manager',
-            'child' => [],
-        ],
+        // [
+        //     'id' => 'menu-settings',
+        //     'icon' => 'bi bi bi-chat-left-text-fill',
+        //     'name' => 'Open Chatbox',
+        //     'route' => 'panel.chatbox.index',
+        //     'position' => 1,
+        //     'access' => 'admin|owner|manager',
+        //     'child' => [],
+        // ],
+        // [
+        //     'id' => 'menu-settings',
+        //     'icon' => 'bi bi bi-gear-fill',
+        //     'name' => 'App Setting',
+        //     'route' => 'panel.settings.index',
+        //     'position' => 1,
+        //     'access' => 'admin|owner|manager',
+        //     'child' => [],
+        // ],
     ],
 
     'userlinks' => [],

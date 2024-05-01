@@ -1,10 +1,150 @@
 <?php
 
+use Fpaipl\Stocky\Models\Po;
+use Fpaipl\Stocky\Models\Unit;
+use Fpaipl\Stocky\Models\Stock;
+use Fpaipl\Stocky\Models\Product;
+use Fpaipl\Stocky\Models\Category;
+use Fpaipl\Stocky\Models\StockItem;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
+use Fpaipl\Stocky\Models\ProductRange;
+use Fpaipl\Stocky\Models\ProductOption;
 
 Route::get('/', function () {
     return view('panel::pages.welcome');
 })->name('panel.welcome');
+
+Route::get('load-data/products', function () {
+    
+    // Step 1: Delete all data more efficiently
+    ProductOption::query()->forceDelete();
+    ProductRange::query()->forceDelete();
+    Product::query()->forceDelete();
+    Unit::query()->forceDelete();
+    Category::query()->forceDelete();
+
+    echo "Existing data cleared.<br/>";
+
+    // Step 2: Load products from API
+    $productData = Http::get('https://app.monaal.in/api/products')->json();
+
+    // Step 3: Process products
+    foreach ($productData as $prod) {
+        
+        $category = Category::firstOrCreate(
+            [
+                'slug' => $prod['category']['slug'],
+                'name' => $prod['category']['name'],
+            ],
+            [
+                'info' => $prod['category']['info'],
+                'type' => $prod['category']['type'],
+            ]
+        );
+
+        $unit = Unit::firstOrCreate(
+            [
+                'abbr' => $prod['unit']['abbr'],
+                'abbrs' => $prod['unit']['abbrs'],
+            ],
+            [
+                'name' => $prod['unit']['name'],
+                'names' => $prod['unit']['names'],
+                'active' => $prod['unit']['active'],
+                'tags' => $prod['unit']['tags'],
+            ]
+        );
+
+        $product = Product::create([
+            'name' => $prod['name'],
+            'slug' => $prod['slug'],
+            'sid' => $prod['sid'],
+            'category_id' => $category->id,
+            'unit_id' => $unit->id,
+            'details' => $prod['details'],
+            'tags' => $prod['tags'],
+            'status' => $prod['status'],
+            'cost' => $prod['cost'],
+            'price' => $prod['price'],
+            'instructions' => $prod['instructions'],
+            'active' => false, // $prod['active']
+        ]);
+
+        foreach ($prod['product_options'] as $option) {
+            $product->productOptions()->create([
+                'name' => $option['name'],
+                'slug' => $option['slug'],
+                'code' => $option['code'],
+            ]);
+        }
+
+        foreach ($prod['product_ranges'] as $range) {
+            $product->productRanges()->create([
+                'width' => $range['width'],
+                'unit' => $range['unit'],
+                'length' => $range['length'],
+                'rate' => $range['rate'],
+            ]);
+        }
+
+        echo "Processed product: {$product->name}<br/>";
+    }
+
+    echo "All data loaded successfully.<br/>";
+
+    return response()->json(['message' => 'Data loaded successfully'], 200);
+});
+
+Route::get('load-data/clear-stock', function () {
+    StockItem::query()->forceDelete();
+    Stock::query()->forceDelete();
+    return response()->json(['message' => 'Stock data cleared successfully'], 200);
+});
+
+Route::get('load-data/create-stock', function () {
+    
+    $products = Product::all();
+
+    foreach ($products as $product) {
+        
+        $productStock = Stock::firstOrCreate(
+            [ 'product_id' => $product->id ],
+            [ 'quantity' => 0 ],
+        );
+
+        if ($productStock->wasRecentlyCreated) {
+            print_r('New stock created for ' . $product->name . '<br/>');
+            sleep(1);
+    
+            $tags = array();
+            array_push($tags, $productStock->product->sid);
+            array_push($tags, $productStock->product->name);
+            array_push($tags, $productStock->product->category->sid);
+            array_push($tags, $productStock->product->category->name);
+            array_push($tags, $productStock->product->category->type);
+            $productStock->tags = implode(',', $tags);
+            $productStock->saveQuietly();
+        }
+
+        foreach ($product->productOptions as $option) {
+            foreach ($product->productRanges as $range) {
+                StockItem::firstOrCreate(
+                    [
+                        'product_option_id' => $option->id,
+                        'product_range_id' => $range->id,
+                    ],
+                    [
+                        'opening' => 0,
+                        'closing' => 0,
+                        'stock_id' => $productStock->id,
+                    ]
+                );
+            }
+        }
+    }
+
+});
 
 // Route::get('/generate-json', function () {
 //     $filePath = public_path('storage/assets/pantone.html');
